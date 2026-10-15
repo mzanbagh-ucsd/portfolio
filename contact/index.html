@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mersad Zanbagh: Contact</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
-
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="../index.html">Home</a>
         <a href="../projects/index.html">Projects</a>
-        <a href="index.html">Contact</a>
         <a href="../cv/index.html">CV</a>
-        <a href="https://github.com/mzanbagh-ucsd" target="_blank">GitHub</a>
+        <a href="index.html" class="current" aria-current="page">Contact</a>
+        <a href="https://github.com/mzanbagh-ucsd" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
 
-    <h1>Contact</h1>
+    <main>
+        <h1>Contact</h1>
+        <form action="mailto:mzanbagh@ucsd.edu" method="POST" enctype="text/plain">
+            <label>
+                Email
+                <input name="email" type="email" value="example@email.com">
+            </label>
+            <label>
+                Subject
+                <input name="subject" type="text" value="Hello Mersad">
+            </label>
+            <label>
+                Message
+                <textarea name="body">Hi Mersad, I wanted to get in touch with you.</textarea>
+            </label>
+            <button type="submit">Send</button>
+        </form>
 
-    <form action="mailto:mzanbagh@ucsd.edu" method="POST" enctype="text/plain">
-
-        <label>
-            Email
-            <input name="email" type="email" value="example@email.com">
-        </label>
-
-        <label>
-            Subject
-            <input name="subject" value="Hello Mersad">
-        </label>
-
-        <label>
-            Message
-            <textarea name="body">Hi Mersad, I wanted to get in touch with you.</textarea>
-        </label>
-
-        <button>Send</button>
-
-    </form>
-
+    </main>
 </body>
 </html>

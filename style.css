@@ -1,5 +1,6 @@
-/* Lab 2: Styling with CSS - shared by all pages */
+/* Shared styles for the portfolio */
 :root {
+    color-scheme: light dark;
     --color-accent: oklch(60% 0.19 260);
     accent-color: var(--color-accent);
 }
@@ -13,9 +14,10 @@ body {
 
 /* Navigation: flexbox, current-page state, and hover styles */
 nav {
+    --border-color: color-mix(in srgb, CanvasText 25%, transparent);
     display: flex;
     margin-bottom: 2em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -28,14 +30,14 @@ nav a {
 }
 
 nav a.current {
-    border-bottom-color: oklch(80% 3% 200);
+    border-bottom-color: var(--border-color);
     font-weight: 650;
 }
 
 nav a:hover,
 nav a:focus-visible {
     border-bottom-color: var(--color-accent);
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    background-color: color-mix(in srgb, var(--color-accent) 12%, Canvas);
 }
 
 /* Keep all headings visibly distinct from body text */
@@ -56,50 +58,130 @@ h1 {
     border-radius: 0.5em;
 }
 
-/* Step 3: Contact form controls inherit document typography */
-input, textarea, button {
+/* Form controls inherit document typography */
+input, textarea, button, select {
     font: inherit;
 }
 
-/* Step 3.3: A 2-column grid with subgrid labels */
-form {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1em;
-    max-width: 70ch;
+/* Contact page */
+.contact-intro {
+    max-width: 48rem;
+    padding-block: clamp(2.5rem, 7vw, 5rem) 0;
 }
-
-form label {
+.contact-intro .eyebrow {
+    margin-bottom: 0.75rem;
+}
+.contact-intro h1 {
+    margin: 0 0 1.1rem;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    letter-spacing: -0.055em;
+}
+.contact-intro > p:last-child {
+    max-width: 42rem;
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.6;
+    opacity: 0.78;
+}
+.contact-layout {
     display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
     align-items: start;
-    gap: 1em;
+    gap: clamp(2rem, 7vw, 6rem);
+    margin-block: clamp(2.5rem, 6vw, 4rem) 5rem;
 }
 
-form input,
-form textarea {
+.contact-card {
+    padding-top: 0.9rem;
+}
+.contact-card h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+.contact-card p,
+.form-note {
+    opacity: 0.72;
+}
+a.contact-email:link,
+a.contact-email:visited {
+    display: inline-block;
+    color: inherit;
+    font-weight: 650;
+    text-decoration: none;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    border-bottom: 1px solid color-mix(in srgb, CanvasText 30%, transparent);
+    padding-bottom: 0.35rem;
+    overflow-wrap: anywhere;
+}
+a.contact-email:hover,
+a.contact-email:focus-visible {
+    border-bottom-color: var(--color-accent);
+}
+a.contact-email:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+    outline-offset: 4px;
+}
+.contact-form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 42rem;
+}
+.contact-form label {
+    margin-top: 0.7rem;
+    font-size: 0.95rem;
+    font-weight: 650;
+}
+.contact-form input,
+.contact-form textarea {
     box-sizing: border-box;
     width: 100%;
     min-width: 0;
-    padding: 0.5em;
-    border: 1px solid oklch(75% 3% 200);
-    border-radius: 0.25em;
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+    border-radius: 0.65rem;
+    color: CanvasText;
+    background: color-mix(in srgb, CanvasText 3%, Canvas);
 }
-
-form textarea {
-    min-height: 8em;
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+    border-color: var(--color-accent);
+    outline: 2px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+    outline-offset: 2px;
 }
-
-form button {
-    grid-column: 1 / -1;
+.contact-form textarea {
+    min-height: 10rem;
+    resize: vertical;
+}
+.contact-form button {
     justify-self: start;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+    color: Canvas;
     background: var(--color-accent);
-    padding: 0.5em 1.5em;
+    padding: 0.8rem 1.1rem;
     border: 0;
-    border-radius: 0.3em;
+    border-radius: 0.65rem;
+    font-weight: 650;
     cursor: pointer;
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+.contact-form button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+.form-note {
+    margin: 0;
+    font-size: 0.9rem;
+}
+@media (max-width: 40em) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .contact-intro { padding-top: 2rem; }
 }
 
 /* Step 4: Responsive projects layout */
@@ -110,18 +192,43 @@ form button {
     margin-block: 2em;
 }
 
-.projects article {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+.projects.project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.projects article,
+.projects .project-card {
+    display: flex;
+    flex-direction: column;
     gap: 0.75em;
     padding: 1em;
-    border: 1px solid oklch(85% 3% 200);
+    border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
     border-radius: 0.5em;
 }
 
+.projects .project-card {
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.projects .project-card:hover,
+.projects .project-card:focus-visible {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+.projects .project-card:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.projects .project-placeholder {
+    min-height: 11rem;
+}
+
 .projects article h2,
-.projects article p {
+.projects article p,
+.projects .project-card h2,
+.projects .project-card p {
     margin: 0;
 }
 
@@ -134,7 +241,7 @@ form button {
 /* Step 5: Example CV styling */
 .cv-section {
     padding-block: 0.5em 1em;
-    border-bottom: 1px solid oklch(85% 3% 200);
+    border-bottom: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
 }
 
 .cv-section h2 {
@@ -160,3 +267,199 @@ form button {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Theme selector */
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
+.color-scheme select {
+    font: inherit;
+}
+
+@media (max-width: 40em) {
+    .projects.project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 28em) {
+    .projects.project-grid { grid-template-columns: 1fr; }
+}
+
+/* Shared header keeps navigation and theme control aligned on every page */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent);
+    margin-bottom: 2em;
+}
+.site-header nav {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    border: 0;
+}
+.site-header nav a {
+    flex: 0 1 auto;
+    text-align: left;
+    padding: 0.55em 0.9em;
+    border: 1px solid transparent;
+    border-radius: 0.65rem;
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+.site-header nav a.current {
+    color: var(--color-accent);
+    background-color: color-mix(in srgb, var(--color-accent) 10%, Canvas);
+    border-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+    border-bottom-color: transparent;
+    background-color: color-mix(in srgb, var(--color-accent) 14%, Canvas);
+    outline-color: var(--color-accent);
+}
+.site-header .color-scheme {
+    position: static;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: color-mix(in srgb, CanvasText 75%, transparent);
+}
+.site-header .color-scheme select {
+    appearance: none;
+    min-width: 8.5rem;
+    padding: 0.55rem 2.4rem 0.55rem 0.85rem;
+    border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+    border-radius: 0.65rem;
+    color: CanvasText;
+    background-color: Canvas;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23777' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+.site-header .color-scheme select:hover {
+    border-color: color-mix(in srgb, CanvasText 40%, transparent);
+    background-color: color-mix(in srgb, CanvasText 5%, Canvas);
+}
+.site-header .color-scheme select:focus-visible {
+    border-color: color-mix(in srgb, CanvasText 55%, transparent);
+    outline: 2px solid color-mix(in srgb, CanvasText 25%, transparent);
+    outline-offset: 2px;
+}
+@media (max-width: 520px) {
+    .site-header { align-items: flex-start; flex-wrap: wrap; }
+    .site-header nav { flex-wrap: wrap; }
+    .site-header .color-scheme { padding-bottom: 0.5rem; }
+}
+
+
+/* Homepage refresh */
+.home-page .home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+    padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 7vw, 5rem);
+}
+.eyebrow {
+    margin: 0 0 1rem;
+    color: var(--color-accent);
+    font-size: .78rem;
+    font-weight: 750;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.home-page .home-hero h1 {
+    max-width: 12ch;
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    letter-spacing: -.055em;
+}
+.home-page .home-hero h1 span { color: light-dark(#18344a, #7895ae); }
+.hero-lede {
+    max-width: 38rem;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    line-height: 1.65;
+    opacity: .82;
+}
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 2rem; }
+.button-link {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    padding: .85rem 1.15rem;
+    border-radius: .65rem;
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 650;
+}
+.button-link:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.text-link { color: inherit; text-underline-offset: .25em; }
+.hero-image-wrap {
+    margin: 0;
+    padding: .65rem;
+    border: 1px solid color-mix(in srgb, CanvasText 15%, transparent);
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, CanvasText 3%, Canvas);
+    box-shadow: 0 1rem 3rem color-mix(in srgb, CanvasText 9%, transparent);
+}
+.hero-image-wrap .profile-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: .8rem;
+}
+.hero-image-wrap figcaption { padding: .8rem .45rem .35rem; font-size: .85rem; opacity: .7; }
+.home-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+    padding-block: 2.5rem;
+    border-top: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+}
+.home-intro h2 { margin: 0; max-width: 17ch; font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -.035em; }
+.home-intro > p { margin-top: 1.8rem; max-width: 55ch; opacity: .8; }
+.home-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-block: 1rem 4rem; }
+.home-card {
+    position: relative;
+    display: block;
+    min-height: 11rem;
+    padding: 1.3rem;
+    border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+    border-radius: .9rem;
+    color: inherit;
+    text-decoration: none;
+    transition: transform .18s ease, border-color .18s ease;
+}
+.home-card:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+.card-number { font-size: .8rem; color: var(--color-accent); font-weight: 750; }
+.home-card h3 { margin: 1.1rem 0 .4rem; font-size: 1.35rem; }
+.home-card p { margin: 0; max-width: 30ch; opacity: .75; }
+.card-arrow { position: absolute; top: 1.2rem; right: 1.2rem; font-size: 1.2rem; }
+@media (max-width: 650px) {
+    .home-page .home-hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+    .hero-image-wrap { max-width: 22rem; }
+    .home-intro { grid-template-columns: 1fr; gap: .5rem; }
+    .home-intro > p { margin-top: .5rem; }
+    .home-cards { grid-template-columns: 1fr; }
+}
+
+/* Project 2 uses the same page-width and header system as the rest of the site. */
+
+/* Homepage intro heading emphasis */
+.home-intro h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -.045em; }

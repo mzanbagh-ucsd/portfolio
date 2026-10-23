@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mersad Zanbagh: Personal Site &amp; Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Mersad Zanbagh | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="global.js"></script>
 </head>
-<body>
-    <nav aria-label="Main navigation">
-        <a href="index.html" class="current" aria-current="page">Home</a>
-        <a href="projects/index.html">Projects</a>
-        <a href="cv/index.html">CV</a>
-        <a href="contact/index.html">Contact</a>
-        <a href="https://github.com/mzanbagh-ucsd" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </nav>
-
-    <main>
-        <h1>Mersad Zanbagh</h1>
-        <p>Tech enthusiast and tennis player</p>
-        <!-- Place your actual photo in images/me.jpg. -->
-        <img class="profile-photo" src="images/me.jpg" alt="A photo of Mersad Zanbagh">
-
-    </main>
+<body class="home-page">
+  <main class="home-hero">
+    <div class="hero-copy">
+      <h1>Hi, I’m <span>Mersad.</span></h1>
+      <p class="hero-lede">I’m a tech enthusiast, tennis player, and student interested in turning data into clear, thoughtful stories.</p>
+      <div class="hero-actions">
+        <a class="button-link" href="projects/">Explore my projects <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="cv/">View my CV</a>
+      </div>
+    </div>
+    <figure class="hero-image-wrap">
+      <img class="profile-photo" src="images/me.jpg" alt="Portrait of Mersad Zanbagh">
+    </figure>
+  </main>
+  <section class="home-intro" aria-labelledby="interests-title">
+    <div>
+      <h2 id="interests-title">A little about me</h2>
+    </div>
+    <p>I enjoy exploring how data can explain the world around us—from visual storytelling to the questions hidden inside a dataset. This portfolio brings together my coursework and projects.</p>
+  </section>
+  <section class="home-cards" aria-label="Portfolio highlights">
+    <a class="home-card" href="projects/">
+      <span class="card-number">01</span>
+      <h3>Projects</h3>
+      <p>Explore data visualizations and the thinking behind them.</p>
+      <span class="card-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="home-card" href="cv/">
+      <span class="card-number">02</span>
+      <h3>CV</h3>
+      <p>Learn more about my experience, interests, and skills.</p>
+      <span class="card-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="home-card" href="contact/">
+      <span class="card-number">03</span>
+      <h3>Contact</h3>
+      <p>Get in touch or start a conversation.</p>
+      <span class="card-arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
 </body>
 </html>

@@ -1,5 +1,78 @@
 console.log('IT’S ALIVE!');
 
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch JSON: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    return [];
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof Element)) {
+    console.error('renderProjects requires a valid container element.');
+    return;
+  }
+
+  const validHeadingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'];
+  const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2';
+  containerElement.replaceChildren();
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.textContent = 'No projects to display yet.';
+    return;
+  }
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+    article.className = 'project-card';
+
+    const content = project.url ? document.createElement('a') : article;
+    if (project.url) {
+      content.className = 'project-card-link';
+      content.href = project.url.startsWith('http') ? project.url : BASE_PATH + project.url;
+      if (content.host !== location.host) {
+        content.target = '_blank';
+        content.rel = 'noopener noreferrer';
+      }
+    }
+
+    const title = document.createElement(headingTag);
+    title.textContent = project.title || 'Untitled project';
+    content.append(title);
+
+    if (project.image) {
+      const image = document.createElement('img');
+      image.src = project.image;
+      image.alt = project.title ? `Image for ${project.title}` : 'Project image';
+      content.append(image);
+    }
+
+    const description = document.createElement('p');
+    description.textContent = project.description || '';
+    content.append(description);
+
+    if (project.year) {
+      const year = document.createElement('p');
+      year.className = 'project-year';
+      year.textContent = String(project.year);
+      content.append(year);
+    }
+
+    if (project.url) article.append(content);
+    containerElement.append(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${encodeURIComponent(username)}`);
+}
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }

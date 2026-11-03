@@ -13,8 +13,30 @@
   <main>
     <h1 class="projects-title">Projects</h1>
 
-    <section class="projects project-grid" aria-label="Projects">
-    </section>
+    <div class="projects-visualization" aria-label="Projects by year">
+      <svg
+        id="projects-pie-plot"
+        viewBox="-50 -50 100 100"
+        role="group"
+        aria-label="Interactive pie chart showing visible projects by year"
+      ></svg>
+      <ul class="legend" aria-label="Filter projects by year"></ul>
+    </div>
+
+    <div class="project-search-controls">
+      <label class="visually-hidden" for="project-search">Search projects</label>
+      <input
+        id="project-search"
+        class="searchBar"
+        type="search"
+        aria-label="Search projects"
+        placeholder="Search projects..."
+        autocomplete="off"
+      >
+      <button id="clear-year-filter" type="button" hidden>Clear year filter</button>
+    </div>
+
+    <section class="projects project-grid" aria-label="Projects"></section>
   </main>
 </body>
 </html>

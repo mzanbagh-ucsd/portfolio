@@ -571,9 +571,10 @@ a.contact-email:focus-visible {
     outline-offset: 2px;
 }
 @media (max-width: 520px) {
-    .site-header { align-items: flex-start; flex-wrap: wrap; }
-    .site-header nav { flex-wrap: wrap; }
-    .site-header .color-scheme { padding-bottom: 0.5rem; }
+    .site-header { align-items: stretch; flex-direction: column; gap: 0.35rem; }
+    .site-header nav { flex: 1 1 auto; flex-wrap: wrap; gap: 0.1rem; }
+    .site-header nav a { padding: 0.45em 0.55em; }
+    .site-header .color-scheme { align-self: flex-end; padding-bottom: 0.5rem; }
 }
 
 

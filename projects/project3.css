@@ -1,0 +1,271 @@
+.life-project {
+  --life-accent: #38a9a0;
+  --life-secondary: #e18e54;
+  max-width: 94rem;
+  padding: 0 0 4rem;
+}
+
+body:has(.life-project) {
+  max-width: 150ch;
+}
+
+.life-header {
+  padding-block: clamp(1.25rem, 3vw, 2.5rem) 1rem;
+}
+
+.life-header h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--life-accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dek {
+  margin: 0.55rem 0 0.4rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 650;
+}
+
+.research-question {
+  margin: 0.3rem 0 0.7rem;
+  font-size: 1.12rem;
+}
+
+.intro {
+  max-width: none;
+  font-size: 1.1rem;
+  opacity: 0.78;
+  margin-bottom: 0;
+}
+
+.explorer,
+.writeup {
+  margin-block: 2rem 4rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading h2,
+.writeup h2 {
+  margin: 0.2rem 0 1rem;
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  letter-spacing: -0.035em;
+}
+
+.data-status {
+  min-height: 1.5em;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, CanvasText 3%, Canvas);
+}
+
+.controls label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.controls select,
+.controls button {
+  min-height: 2.6rem;
+  border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  color: CanvasText;
+  background: Canvas;
+}
+
+.controls button {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.controls button:hover,
+.controls button:focus-visible {
+  border-color: var(--life-accent);
+  outline-color: var(--life-accent);
+}
+
+.controls .quiet-button {
+  background: transparent;
+}
+
+.selection-label {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.selected-countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  min-height: 2rem;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.selected-countries button {
+  --chip-color: var(--life-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--chip-color) 65%, transparent);
+  border-radius: 99px;
+  padding: 0.28rem 0.7rem;
+  color: CanvasText;
+  background: color-mix(in srgb, var(--chip-color) 14%, Canvas);
+  cursor: pointer;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.chart-panel {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
+  border-radius: 1rem;
+  background: color-mix(in srgb, CanvasText 2%, Canvas);
+}
+
+.chart-panel figcaption {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.chart-panel figcaption strong {
+  font-size: 1.25rem;
+}
+
+.chart-panel figcaption span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.chart-panel svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-panel .axis text,
+.chart-panel .grid text {
+  fill: CanvasText;
+  font: 14px system-ui, sans-serif;
+  opacity: 0.75;
+}
+
+.chart-panel .axis path,
+.chart-panel .axis line {
+  stroke: color-mix(in srgb, CanvasText 32%, transparent);
+}
+
+.chart-panel .grid line {
+  stroke: color-mix(in srgb, CanvasText 12%, transparent);
+}
+
+.trend-line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trend-point {
+  stroke: Canvas;
+  stroke-width: 2;
+}
+
+.rank-row {
+  cursor: pointer;
+}
+
+.rank-row:focus .rank-bar,
+.rank-row:hover .rank-bar {
+  filter: brightness(1.2);
+}
+
+.rank-row:focus {
+  outline: none;
+}
+
+.rank-label,
+.rank-value {
+  fill: CanvasText;
+  font: 14px system-ui, sans-serif;
+}
+
+.rank-value {
+  font-weight: 700;
+}
+
+.chart-note,
+.sources {
+  font-size: 0.87rem;
+  opacity: 0.72;
+}
+
+.writeup {
+  max-width: none;
+  font-size: 1.08rem;
+}
+
+.writeup p {
+  line-height: 1.65;
+}
+
+.writeup .sources {
+  font-size: 1rem;
+}
+
+.writeup h2:not(:first-of-type) {
+  margin-top: 2.4rem;
+}
+
+@media (max-width: 600px) {
+  body { padding-inline: 0.7rem; }
+  .life-project { padding-bottom: 2rem; }
+  .section-heading { display: block; }
+  .controls { align-items: stretch; }
+  .controls label { flex: 1 1 40%; }
+  .controls select { width: 100%; }
+  .chart-panel { padding: 0.65rem; }
+  .chart-panel .axis text,
+  .chart-panel .grid text,
+  .rank-label,
+  .rank-value { font-size: 10px; }
+}

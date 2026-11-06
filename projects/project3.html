@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Project 3 | Life Expectancy Around the World</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="project3.css">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="project3.js"></script>
+</head>
+<body>
+  <main class="life-project">
+    <header class="life-header">
+      <h1>Project 3</h1>
+      <p class="dek">Rwanda gained 19 years between 2000 and 2020.</p>
+      <p class="research-question"><strong>Which countries gained the most?</strong></p>
+      <p class="intro">Choose a year range to compare gains. Click a bar to follow a country over time.</p>
+    </header>
+
+    <section class="explorer" aria-labelledby="explorer-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="explorer-title">Compare countries</h2>
+        </div>
+        <p id="data-status" class="data-status" role="status" aria-live="polite">Loading World Bank data…</p>
+      </div>
+
+      <div class="controls" aria-label="Visualization filters">
+        <label>Ranking region
+          <select id="region-filter"><option value="all">All regions</option></select>
+        </label>
+        <label>Add a country
+          <select id="country-picker" aria-label="Choose a country to compare"></select>
+        </label>
+        <button id="add-country" type="button">Add country</button>
+        <label>From
+          <select id="start-year" aria-label="Start year"></select>
+        </label>
+        <label>To
+          <select id="end-year" aria-label="End year"></select>
+        </label>
+        <button id="reset-view" class="quiet-button" type="button">Reset</button>
+      </div>
+
+      <p class="selection-label">Selected countries (up to five)</p>
+      <ul id="selected-countries" class="selected-countries" aria-label="Selected countries"></ul>
+
+      <div class="chart-grid">
+        <figure class="chart-panel trend-panel">
+          <figcaption>
+            <strong>Life expectancy by year</strong>
+            <span>Hover a point to see its value.</span>
+          </figcaption>
+          <svg id="trend-chart" viewBox="0 0 900 440" role="img" aria-label="Line chart comparing life expectancy at birth over time for selected countries"></svg>
+        </figure>
+        <figure class="chart-panel ranking-panel">
+          <figcaption>
+            <strong>Largest gains, <span id="ranking-period">2000–2020</span></strong>
+            <span>Click a bar to add that country to the line chart.</span>
+          </figcaption>
+          <svg id="ranking-chart" viewBox="0 0 900 440" role="img" aria-label="Bar chart ranking countries by life expectancy gains over the selected period"></svg>
+        </figure>
+      </div>
+      <p class="chart-note">Rankings include countries with data in both years. Missing values are not estimated.</p>
+    </section>
+
+    <section class="writeup" aria-labelledby="design-title">
+      <h2 id="design-title">How to read the charts</h2>
+      <p>Lines show life expectancy over time. Bars show how much it changed between the years you choose. Click a bar to add that country to the line chart. The chart compares up to five countries at once.</p>
+      <p>The data covers 1960–2020. Life-expectancy values come from the World Bank; country regions come from the GitHub dataset. A country appears in the ranking only when both years have data. Missing values are not filled in.</p>
+
+      <h2>Data and process</h2>
+      <p>I completed the project on my own with instructor approval. I estimate it would take a student about 12–16 hours without AI help, mostly to prepare the data and connect the chart controls. This is an estimate, not a tracked time log.</p>
+      <p class="sources"><a href="https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?date=1960%3A2020&amp;format=json&amp;per_page=20000">Life-expectancy data: World Bank API.</a> <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">Country regions: World Bank Data by Indicators.</a> A copy of the data is included with the project.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,5 +1,12 @@
 [
   {
+    "title": "Project 3",
+    "year": 2026,
+    "image": "",
+    "description": "An interactive exploration of life expectancy trends and country-level gains from 1960 to 2020.",
+    "url": "projects/project3.html"
+  },
+  {
     "title": "Project 2: Persuasive or Deceptive Visualization?",
     "year": 2026,
     "image": "",

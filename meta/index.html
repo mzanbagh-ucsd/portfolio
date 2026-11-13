@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An interactive look at the code and commit history behind this portfolio.">
+  <title>Code activity | Mersad Zanbagh</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="main.js"></script>
+</head>
+<body class="meta-page">
+  <main>
+    <header class="meta-intro">
+      <p class="eyebrow">Portfolio, by the numbers</p>
+      <h1>Code activity</h1>
+      <p>Every point represents a commit that still contributes to this site. Explore when the work happened, how large each change was, and which parts of the codebase changed.</p>
+    </header>
+
+    <section class="meta-section" aria-labelledby="stats-title">
+      <h2 id="stats-title">The codebase at a glance</h2>
+      <p id="load-status" role="status">Loading code history…</p>
+      <dl id="stats" class="stats" aria-live="polite"></dl>
+    </section>
+
+    <section class="meta-section" aria-labelledby="chart-title">
+      <div class="chart-heading">
+        <div>
+          <p class="eyebrow">Commit history</p>
+          <h2 id="chart-title">A day’s work, over time</h2>
+        </div>
+        <p>Each dot is a commit. Its horizontal position is the date, its height is the local commit time, and its area represents the number of lines touched.</p>
+      </div>
+      <div id="chart" aria-label="Interactive scatterplot of commits by date and time"></div>
+      <ul class="meta-legend" aria-label="Chart color key">
+        <li><span class="legend-dot" style="--dot-color: #3b82f6" aria-hidden="true"></span>Night / early morning</li>
+        <li><span class="legend-dot" style="--dot-color: #d97706" aria-hidden="true"></span>Daytime</li>
+        <li>Drag across the plot to select commits</li>
+      </ul>
+      <div class="selection-controls">
+        <p id="selection-count" aria-live="polite">No commits selected — drag to select commits.</p>
+        <button id="clear-selection" type="button" hidden>Clear selection</button>
+      </div>
+    </section>
+
+    <section class="meta-section" aria-labelledby="language-title">
+      <h2 id="language-title">What changed in the selection?</h2>
+      <p id="language-hint">Brush the chart to see the languages represented in the selected commits.</p>
+      <dl id="language-breakdown" class="language-breakdown" aria-describedby="language-hint"></dl>
+    </section>
+  </main>
+
+  <div id="commit-tooltip" class="tooltip" role="tooltip" hidden>
+    <h3 class="tooltip-title">Commit details</h3>
+    <dl class="info">
+      <div><dt>Commit</dt><dd><a id="commit-link" href="" target="_blank" rel="noopener noreferrer"></a></dd></div>
+      <div><dt>Date</dt><dd id="commit-date"></dd></div>
+      <div><dt>Time</dt><dd id="commit-time"></dd></div>
+      <div><dt>Author</dt><dd id="commit-author"></dd></div>
+      <div><dt>Lines</dt><dd id="commit-lines"></dd></div>
+    </dl>
+  </div>
+</body>
+</html>

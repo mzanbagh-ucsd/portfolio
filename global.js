@@ -89,7 +89,11 @@ const BASE_PATH =
 
 const pages = [
   { url: '', title: 'Home' },
-  { url: 'projects/', title: 'Projects' },
+  {
+    url: 'projects/',
+    title: 'Projects',
+    children: [{ url: 'projects/final-project.html', title: 'Final Project' }],
+  },
   { url: 'meta/', title: 'Meta' },
   { url: 'cv/', title: 'CV' },
   { url: 'contact/', title: 'Contact' },
@@ -101,11 +105,10 @@ siteHeader.className = 'site-header';
 
 const nav = document.createElement('nav');
 
-for (const page of pages) {
+function pageLink(page) {
   const url = page.url.startsWith('http')
     ? page.url
     : BASE_PATH + page.url;
-
   const link = document.createElement('a');
   link.href = url;
   link.textContent = page.title;
@@ -117,8 +120,60 @@ for (const page of pages) {
   if (link.host !== location.host) {
     link.target = '_blank';
   }
+  return link;
+}
 
-  nav.append(link);
+for (const page of pages) {
+  if (!page.children) {
+    nav.append(pageLink(page));
+    continue;
+  }
+
+  const group = document.createElement('div');
+  group.className = 'nav-group';
+  const parentLink = pageLink(page);
+  const submenu = document.createElement('div');
+  submenu.className = 'nav-submenu';
+  submenu.setAttribute('aria-label', `${page.title} pages`);
+  const toggle = document.createElement('button');
+  toggle.className = 'nav-submenu-toggle';
+  toggle.type = 'button';
+  toggle.setAttribute('aria-label', `Show ${page.title} submenu`);
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = '<span aria-hidden="true">⌄</span>';
+
+  for (const child of page.children) submenu.append(pageLink(child));
+
+  const closeSubmenu = () => {
+    group.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+  const openSubmenu = () => {
+    group.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    group.classList.toggle('is-open', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  group.addEventListener('focusin', openSubmenu);
+  group.addEventListener('mouseenter', openSubmenu);
+  group.addEventListener('mouseleave', () => {
+    if (!group.contains(document.activeElement)) closeSubmenu();
+  });
+  group.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      toggle.focus();
+      closeSubmenu();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!group.contains(event.target)) closeSubmenu();
+  });
+
+  group.append(parentLink, toggle, submenu);
+  nav.append(group);
 }
 
 siteHeader.append(nav);

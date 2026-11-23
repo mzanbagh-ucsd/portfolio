@@ -536,6 +536,63 @@ a.contact-email:focus-visible {
     background-color: color-mix(in srgb, var(--color-accent) 14%, Canvas);
     outline-color: var(--color-accent);
 }
+.site-header nav .nav-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+.site-header nav .nav-group > a {
+    padding-right: 0.45rem;
+}
+.site-header nav .nav-submenu-toggle {
+    display: inline-grid;
+    width: 1.8rem;
+    height: 2.35rem;
+    place-items: center;
+    margin-left: -0.4rem;
+    border: 1px solid transparent;
+    border-radius: 0.55rem;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+.site-header nav .nav-submenu-toggle:hover,
+.site-header nav .nav-submenu-toggle:focus-visible {
+    border-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+    background: color-mix(in srgb, var(--color-accent) 12%, Canvas);
+    outline-color: var(--color-accent);
+}
+.site-header nav .nav-submenu {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    display: none;
+    min-width: 12rem;
+    padding: 0.4rem;
+    border: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
+    border-radius: 0.75rem;
+    background: Canvas;
+    box-shadow: 0 12px 32px color-mix(in srgb, CanvasText 16%, transparent);
+}
+.site-header nav .nav-group.is-open .nav-submenu {
+    display: grid;
+}
+.site-header nav .nav-submenu a {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.45rem;
+    text-align: left;
+    white-space: nowrap;
+}
+.site-header nav .nav-submenu a.current {
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, Canvas);
+    border-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
 .site-header .color-scheme {
     position: static;
     flex: 0 0 auto;

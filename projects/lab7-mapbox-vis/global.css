@@ -1,0 +1,6 @@
+* { box-sizing: border-box; }
+body { font: 100%/1.5 system-ui, sans-serif; max-width: 80em; min-height: 100vh; margin: auto; padding: 1.25rem; color: #172a2a; background: #f5f7f3; }
+header { margin-bottom: 1rem; }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.04em; }
+header p { margin: .25rem 0; }
+.eyebrow { color: #337b64; font-size: .75rem; font-weight: 750; letter-spacing: .14em; }

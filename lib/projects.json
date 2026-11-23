@@ -1,5 +1,12 @@
 [
   {
+    "title": "Lab7_Mapbox Vis",
+    "year": 2026,
+    "image": "",
+    "description": "An interactive Mapbox visualization of Boston Bluebikes traffic, with bike lanes, station activity, and a time-of-day filter.",
+    "url": "projects/lab7-mapbox-vis/"
+  },
+  {
     "title": "Project 3",
     "year": 2026,
     "image": "",

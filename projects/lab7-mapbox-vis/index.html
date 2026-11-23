@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bike Watching | Boston Bluebikes</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="map.css">
+  <script src="config.js"></script>
+  <script type="module" src="map.js"></script>
+</head>
+<body>
+  <header><p class="eyebrow">BOSTON · MARCH 2024</p><h1>Bike watching</h1><p>Where do Bluebikes rides begin and end throughout the day?</p></header>
+  <section class="controls" aria-label="Map controls">
+    <label for="time-slider">Time of day <output id="time-label">All day</output></label>
+    <input id="time-slider" type="range" min="-1" max="1439" value="-1">
+    <div class="range-labels"><span>All day</span><span>6 AM</span><span>Noon</span><span>6 PM</span><span>Midnight</span></div>
+  </section>
+  <div id="map" aria-label="Map of Boston bike stations"></div>
+  <div class="legend" aria-label="Station traffic legend"><span><i class="departures"></i> More departures</span><span><i class="balanced"></i> Balanced</span><span><i class="arrivals"></i> More arrivals</span></div>
+  <p id="status" role="status">Loading map and bike data…</p>
+</body>
+</html>

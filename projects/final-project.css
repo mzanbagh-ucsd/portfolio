@@ -1,0 +1,588 @@
+.final-life-page {
+  max-width: 150ch;
+  padding-bottom: 4rem;
+  --final-ink-soft: color-mix(in srgb, CanvasText 68%, transparent);
+  --final-border: color-mix(in srgb, CanvasText 16%, transparent);
+  --final-surface: color-mix(in srgb, CanvasText 2%, Canvas);
+  --final-accent: #188f88;
+  --final-warm: #d87945;
+}
+
+.final-life {
+  max-width: 132rem;
+  margin-inline: auto;
+}
+
+.final-hero {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: min(78vh, 54rem);
+  padding: clamp(3rem, 9vw, 8rem) clamp(0.5rem, 5vw, 5rem);
+  border-bottom: 1px solid var(--final-border);
+}
+
+.final-hero .eyebrow,
+.story-copy .eyebrow,
+.ending .eyebrow {
+  margin-bottom: 1rem;
+  color: var(--final-accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.final-hero h1 {
+  max-width: 13ch;
+  margin: 0;
+  font-size: clamp(3.7rem, 10vw, 8.5rem);
+  letter-spacing: -0.075em;
+  line-height: 0.91;
+}
+
+.final-hero h1 span,
+.ending h2 span {
+  color: var(--final-accent);
+}
+
+.hero-question {
+  max-width: 40rem;
+  margin: 2rem 0 0.55rem;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.hero-dek {
+  max-width: 45rem;
+  margin: 0;
+  color: var(--final-ink-soft);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-self: start;
+  margin-top: 2rem;
+  color: CanvasText;
+  font-weight: 700;
+  text-decoration-color: var(--final-accent);
+  text-underline-offset: 0.25em;
+}
+
+.scroll-cue span {
+  color: var(--final-accent);
+  font-size: 1.4rem;
+}
+
+.story-section {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.68fr) minmax(0, 1.32fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-block: clamp(3.5rem, 8vw, 7rem);
+  scroll-margin-top: 2rem;
+}
+
+.story-copy {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.story-copy h2,
+.ending h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.story-copy p:not(.eyebrow) {
+  max-width: 36rem;
+  color: var(--final-ink-soft);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.story-copy p strong {
+  color: CanvasText;
+}
+
+.story-copy .chart-hint {
+  font-size: 0.9rem !important;
+}
+
+.finding {
+  padding-left: 1rem;
+  border-left: 3px solid var(--final-warm);
+  color: CanvasText !important;
+  font-weight: 700;
+}
+
+.viz-stack {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.viz-card {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(0.8rem, 2vw, 1.4rem);
+  border: 1px solid var(--final-border);
+  border-radius: 1rem;
+  background: var(--final-surface);
+}
+
+.viz-card figcaption {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.viz-card figcaption strong {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+}
+
+.viz-card figcaption span {
+  color: var(--final-ink-soft);
+  font-size: 0.83rem;
+}
+
+.viz-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.viz-card svg text {
+  fill: CanvasText;
+  font-family: system-ui, sans-serif;
+}
+
+.viz-card .x-axis text,
+.viz-card .grid-axis text,
+.heatmap-x-axis text {
+  fill: var(--final-ink-soft);
+  font-size: 12px;
+}
+
+.viz-card .x-axis path,
+.viz-card .x-axis line,
+.viz-card .grid-axis line {
+  stroke: color-mix(in srgb, CanvasText 24%, transparent);
+}
+
+.viz-card .grid-axis line {
+  stroke: color-mix(in srgb, CanvasText 10%, transparent);
+}
+
+.viz-card .axis-label {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.global-band {
+  fill: color-mix(in srgb, var(--final-accent) 18%, transparent);
+}
+
+.global-line {
+  fill: none;
+  stroke: var(--final-accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.global-endpoint {
+  fill: var(--final-accent);
+  stroke: Canvas;
+  stroke-width: 2;
+}
+
+.chart-annotation {
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.region-line,
+.gap-line {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+
+.region-line.is-focused,
+.gap-line.is-focused {
+  stroke-width: 4.2;
+  opacity: 1;
+}
+
+.zero-line {
+  stroke: color-mix(in srgb, CanvasText 45%, transparent);
+  stroke-dasharray: 5 5;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chart-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 0;
+  border-radius: 99px;
+  padding: 0.25rem 0.45rem;
+  color: var(--final-ink-soft);
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.chart-legend button[aria-pressed='true'] {
+  color: CanvasText;
+  background: color-mix(in srgb, var(--final-accent) 16%, Canvas);
+}
+
+.legend-swatch {
+  width: 0.65rem;
+  height: 0.2rem;
+  border-radius: 2px;
+  background: var(--swatch);
+}
+
+.country-control {
+  flex: 1 1 13rem;
+}
+
+.explorer-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid var(--final-border);
+  border-radius: 0.9rem;
+  background: var(--final-surface);
+}
+
+.explorer-controls label {
+  display: grid;
+  flex: 0 1 9rem;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.explorer-controls select,
+.explorer-controls button {
+  min-height: 2.6rem;
+  border: 1px solid var(--final-border);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  color: CanvasText;
+  background: Canvas;
+  font: inherit;
+}
+
+.explorer-controls button {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.explorer-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.explorer-controls button:hover:not(:disabled),
+.explorer-controls button:focus-visible {
+  border-color: var(--final-accent);
+}
+
+.explorer-controls .secondary-button {
+  background: transparent;
+}
+
+.selection-label {
+  grid-column: 1 / -1;
+  margin: -0.5rem 0 -1.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.selection-label span {
+  color: var(--final-ink-soft);
+  font-weight: 450;
+}
+
+.selected-countries {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 2.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.selected-countries button {
+  border: 1px solid color-mix(in srgb, var(--country-color) 60%, transparent);
+  border-radius: 99px;
+  padding: 0.3rem 0.75rem;
+  color: CanvasText;
+  background: color-mix(in srgb, var(--country-color) 14%, Canvas);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.country-story > .viz-card,
+.ranking-viz,
+.heatmap-viz {
+  grid-column: 1 / -1;
+}
+
+.country-line {
+  fill: none;
+  stroke-width: 3.2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.country-point {
+  stroke: Canvas;
+  stroke-width: 1.5;
+}
+
+.rank-row {
+  cursor: pointer;
+}
+
+.rank-row:focus {
+  outline: none;
+}
+
+.rank-row:focus .rank-bar,
+.rank-row:hover .rank-bar {
+  filter: brightness(1.15);
+}
+
+.rank-country,
+.rank-value {
+  font-size: 13px;
+}
+
+.rank-value {
+  font-weight: 750;
+}
+
+.rank-bar {
+  fill: var(--final-warm);
+  transition: opacity 160ms ease;
+}
+
+.heatmap-viz {
+  overflow: hidden;
+}
+
+.heatmap-scroll {
+  max-height: 68vh;
+  overflow: auto;
+  border: 1px solid var(--final-border);
+  border-radius: 0.5rem;
+}
+
+#heatmap-chart {
+  min-width: 800px;
+}
+
+.heatmap-x-axis text {
+  font-size: 10px;
+}
+
+.heatmap-country {
+  font-size: 10px;
+}
+
+.heat-cell {
+  cursor: pointer;
+  stroke: color-mix(in srgb, Canvas 45%, transparent);
+  stroke-width: 0.35px;
+}
+
+.heat-cell:focus,
+.heat-cell:hover {
+  stroke: CanvasText;
+  stroke-width: 1.5px;
+}
+
+.heat-cell.is-missing {
+  stroke: color-mix(in srgb, CanvasText 12%, transparent);
+  stroke-dasharray: 1 2;
+}
+
+.heatmap-key {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+  color: var(--final-ink-soft);
+  font-size: 0.75rem;
+}
+
+.heatmap-gradient {
+  width: min(15rem, 40vw);
+  height: 0.7rem;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #ffffcc, #78c679, #238443, #081d58);
+}
+
+.missing-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.missing-key i {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px dashed var(--final-ink-soft);
+}
+
+.ending {
+  display: block;
+  max-width: 68rem;
+  padding-block: 2rem 3rem;
+  border-top: 1px solid var(--final-border);
+}
+
+.prototype-writeup {
+  margin-block: 4rem;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  border: 1px solid var(--final-border);
+  border-radius: 1rem;
+  background: var(--final-surface);
+}
+
+.prototype-writeup > h2 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+
+.writeup-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 3rem);
+}
+
+.writeup-columns h3 {
+  font-size: 1.08rem;
+}
+
+.writeup-columns p {
+  margin-bottom: 0;
+  color: var(--final-ink-soft);
+  line-height: 1.7;
+}
+
+.ending h2 {
+  max-width: 22ch;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.ending > p:not(.eyebrow) {
+  max-width: 50rem;
+  color: var(--final-ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.ending .source-note {
+  padding-top: 1rem;
+  border-top: 1px solid var(--final-border);
+  font-size: 0.84rem !important;
+}
+
+.final-status {
+  color: var(--final-ink-soft);
+  font-size: 0.82rem;
+}
+
+.empty-message {
+  font-size: 16px;
+}
+
+@media (max-width: 55rem) {
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+
+  .story-copy {
+    position: static;
+  }
+
+  .country-story > .story-copy,
+  .ranking-story > .story-copy,
+  .heatmap-story > .story-copy {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 38rem) {
+  .final-hero {
+    min-height: 72vh;
+    padding-inline: 0.25rem;
+  }
+
+  .story-section {
+    margin-block: 3.5rem;
+  }
+
+  .explorer-controls {
+    align-items: stretch;
+  }
+
+  .explorer-controls label {
+    flex: 1 1 40%;
+  }
+
+  .explorer-controls select {
+    width: 100%;
+  }
+
+  .heatmap-key {
+    flex-wrap: wrap;
+  }
+
+  .writeup-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rank-bar {
+    transition: none;
+  }
+}

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An interactive story about global life expectancy gains and the unequal pace of progress across countries and regions.">
+  <title>A longer life, unequally shared | Mersad Zanbagh</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="final-project.css">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="final-project.js"></script>
+</head>
+<body class="final-life-page">
+  <main class="final-life">
+    <header class="final-hero">
+      <p class="eyebrow">DSC 209R · Final project</p>
+      <h1>A longer life,<br><span>unequally shared.</span></h1>
+      <p class="hero-question">How much longer do people live today—and where has that progress reached?</p>
+      <p class="hero-dek">From 1960 to 2020, the median life expectancy across countries rose by 16.5 years. But that single global number hides very different journeys. Explore the pace of change across regions, then follow the countries behind it.</p>
+      <a class="scroll-cue" href="#global-story">Explore the story <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <section class="global-story story-section" id="global-story" aria-labelledby="global-title">
+      <div class="story-copy">
+        <p class="eyebrow">01 · The global shift</p>
+        <h2 id="global-title">The middle moved up.</h2>
+        <p>Across countries with reported data, the median life expectancy climbed from <strong>56.5 years in 1960</strong> to <strong>73.0 years in 2020</strong>. The shaded band holds the middle half of countries, showing how spread out those lives remained.</p>
+        <p class="chart-hint">Hover the line or shaded band to inspect a year.</p>
+      </div>
+      <figure class="viz-card global-viz">
+        <figcaption><strong>Life expectancy across countries</strong><span>Annual median and interquartile range · years at birth</span></figcaption>
+        <svg id="global-chart" viewBox="0 0 1000 470" role="img" aria-label="Global median life expectancy with the interquartile range from 1960 to 2020"></svg>
+      </figure>
+    </section>
+
+    <section class="region-story story-section" aria-labelledby="region-title">
+      <div class="story-copy">
+        <p class="eyebrow">02 · The regional split</p>
+        <h2 id="region-title">The climb was not the same everywhere.</h2>
+        <p>Regional medians trace seven different starting points and slopes. The lines make the direction clear; the gap chart below shows how far each region sat above or below the global midpoint.</p>
+        <p id="regional-takeaway" class="finding" aria-live="polite">Loading regional comparison…</p>
+      </div>
+      <div class="viz-stack">
+        <figure class="viz-card">
+          <figcaption><strong>Seven regional paths</strong><span>Median life expectancy by World Bank region</span></figcaption>
+          <svg id="region-chart" viewBox="0 0 1000 500" role="img" aria-label="Regional median life expectancy from 1960 to 2020"></svg>
+          <ul id="region-legend" class="chart-legend" aria-label="Regions"></ul>
+        </figure>
+        <figure class="viz-card">
+          <figcaption><strong>Distance from the global median</strong><span>Region median minus global median · years</span></figcaption>
+          <svg id="gap-chart" viewBox="0 0 1000 430" role="img" aria-label="Regional difference from the global median over time"></svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="country-story story-section" aria-labelledby="country-title">
+      <div class="story-copy">
+        <p class="eyebrow">03 · Country by country</p>
+        <h2 id="country-title">Averages smooth over real lives.</h2>
+        <p>Pick a few countries to compare their trajectories. A click on a ranking bar adds that country here. The same country can look very different depending on which years you compare.</p>
+      </div>
+      <div class="explorer-controls" aria-label="Shared chart filters">
+        <label>Focus region
+          <select id="region-filter"><option value="all">All regions</option></select>
+        </label>
+        <label>From
+          <select id="start-year" aria-label="Start year"></select>
+        </label>
+        <label>To
+          <select id="end-year" aria-label="End year"></select>
+        </label>
+        <label class="country-control">Add a country
+          <select id="country-picker" aria-label="Choose a country to compare"></select>
+        </label>
+        <button id="add-country" type="button">Add country</button>
+        <button id="reset-view" class="secondary-button" type="button">Reset view</button>
+      </div>
+      <p class="selection-label">Compared countries <span>(up to five)</span></p>
+      <ul id="selected-countries" class="selected-countries" aria-label="Countries in the trajectory chart"></ul>
+      <figure class="viz-card">
+        <figcaption><strong>Life expectancy trajectories</strong><span>Years at birth · selected year range</span></figcaption>
+        <svg id="country-chart" viewBox="0 0 1000 500" role="img" aria-label="Country life expectancy trajectories for selected countries"></svg>
+      </figure>
+    </section>
+
+    <section class="ranking-story story-section" aria-labelledby="ranking-title">
+      <div class="story-copy">
+        <p class="eyebrow">04 · The fastest gains</p>
+        <h2 id="ranking-title">Some countries made up decades.</h2>
+        <p>Rankings compare only countries with observations in both selected years. Choose a bar to bring its trajectory into the comparison above; change the years and region to ask a different question.</p>
+        <p id="ranking-takeaway" class="finding" aria-live="polite"></p>
+      </div>
+      <figure class="viz-card ranking-viz">
+        <figcaption><strong>Largest gains, <span id="ranking-period">1960–2020</span></strong><span>Change in years · click a bar to follow a country</span></figcaption>
+        <svg id="ranking-chart" viewBox="0 0 1000 520" role="img" aria-label="Countries ranked by life expectancy gain over the selected years"></svg>
+      </figure>
+    </section>
+
+    <section class="heatmap-story story-section" aria-labelledby="heatmap-title">
+      <div class="story-copy">
+        <p class="eyebrow">05 · Every country, every year</p>
+        <h2 id="heatmap-title">The whole picture is uneven.</h2>
+        <p>Each cell is one country-year. Rows follow the selected region; columns move through time. Blank cells mean the source has no reported value. Select a cell to add its country to the trajectory chart.</p>
+      </div>
+      <figure class="viz-card heatmap-viz">
+        <figcaption><strong>Country-year life expectancy</strong><span>Years at birth · choose a region above to narrow the rows</span></figcaption>
+        <div class="heatmap-scroll"><svg id="heatmap-chart" role="img" aria-label="Heatmap of country life expectancy by year"></svg></div>
+        <div class="heatmap-key" aria-label="Life expectancy color scale"><span>35 years</span><span class="heatmap-gradient" aria-hidden="true"></span><span>85 years</span><span class="missing-key"><i aria-hidden="true"></i>No data</span></div>
+      </figure>
+    </section>
+
+    <section class="prototype-writeup" aria-labelledby="prototype-writeup-title">
+      <p class="eyebrow">Prototype notes</p>
+      <h2 id="prototype-writeup-title">What is built, and what comes next?</h2>
+      <div class="writeup-columns">
+        <div>
+          <h3>What have I done so far?</h3>
+          <p>I prepared a country-year dataset from the World Bank life-expectancy indicator and joined it to regional classifications for 1960–2020. I built a first version of the explorable page with six views: the global distribution, regional trends, regional gaps, country trajectories, a gains ranking, and a country-year heatmap. Readers can change the years and region, add countries from the ranking or heatmap, and compare country trajectories. The page includes source notes and leaves missing observations blank instead of estimating them.</p>
+        </div>
+        <div>
+          <h3>What will be the most challenging part?</h3>
+          <p>The hardest part will be helping readers move between the global pattern and individual country paths without losing context. The heatmap includes more than 200 countries across 61 years, so labels and missing observations can become difficult to read. Regional medians can hide large differences within a region, while a ranking based on two endpoints can hide changes along the way. I plan to test the prototype with classmates, then use their feedback to refine the annotations, chart hierarchy, and controls.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ending story-section" aria-labelledby="ending-title">
+      <p class="eyebrow">The takeaway</p>
+      <h2 id="ending-title">Longer lives are a global story.<br><span>Uneven progress is the story within it.</span></h2>
+      <p>Life expectancy summarizes many forces—healthcare, living conditions, conflict, and public policy. These charts show where the measure moved, and where gaps persisted. They do not explain every cause, but they make the differences easier to see and investigate.</p>
+      <p class="source-note">Source: World Bank indicator SP.DYN.LE00.IN, life expectancy at birth, total (years), 1960–2020. Country regions use World Bank regional classifications. Missing observations are left blank; they are not estimated.</p>
+    </section>
+
+    <p id="data-status" class="final-status" role="status" aria-live="polite">Loading country-year data…</p>
+  </main>
+
+  <div id="chart-tooltip" class="final-tooltip" role="tooltip" hidden></div>
+</body>
+</html>

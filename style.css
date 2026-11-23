@@ -992,6 +992,133 @@ a.contact-email:focus-visible {
     color: #b91c1c;
 }
 
+.timeline-control {
+    display: grid;
+    gap: 0.35rem;
+    margin-block: 1.25rem;
+}
+
+.timeline-control label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-weight: 650;
+}
+
+#timeline-date {
+    margin-left: auto;
+    color: var(--meta-muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+#commit-progress {
+    width: 100%;
+}
+
+#scrolly-1 {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 1.25rem;
+}
+
+#scatter-story {
+    position: relative;
+}
+
+#scatter-story .step {
+    display: flex;
+    min-height: 58vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    color: var(--meta-muted);
+    transition: color 180ms ease, opacity 180ms ease;
+    opacity: 0.58;
+}
+
+#scatter-story .step.is-active {
+    color: CanvasText;
+    opacity: 1;
+}
+
+#scatter-story .step p:last-child {
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.65;
+}
+
+#scatter-story a {
+    color: inherit;
+    text-decoration-color: var(--meta-accent);
+    text-underline-offset: 0.2em;
+}
+
+#scatter-plot {
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    min-width: 0;
+    height: 72vh;
+}
+
+#scatter-plot #chart {
+    margin-top: 0;
+}
+
+.file-race {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.8fr) minmax(0, 1.2fr);
+    gap: 0.25rem 1rem;
+    margin: 1rem 0 0;
+}
+
+.file-row {
+    display: contents;
+}
+
+.file-row dt,
+.file-row dd {
+    min-width: 0;
+    margin: 0;
+    border-bottom: 1px solid color-mix(in srgb, CanvasText 10%, transparent);
+}
+
+.file-row dt {
+    padding-block: 0.65rem;
+    overflow-wrap: anywhere;
+}
+
+.file-row dt code {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.file-row dt small {
+    display: block;
+    color: var(--meta-muted);
+    font-size: 0.75rem;
+}
+
+.file-row dd {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    align-items: start;
+    gap: 0.15em;
+    padding-block: 0.8rem 0.4rem;
+}
+
+.loc {
+    display: block;
+    width: 0.48em;
+    aspect-ratio: 1;
+    flex: 0 0 0.48em;
+    border-radius: 50%;
+    background: var(--file-color);
+}
+
 @media (max-width: 40em) {
     .chart-heading {
         align-items: start;
@@ -1007,11 +1134,32 @@ a.contact-email:focus-visible {
         align-items: start;
         flex-direction: column;
     }
+
+    #scrolly-1 {
+        grid-template-columns: 1fr;
+    }
+
+    #scatter-plot {
+        position: relative;
+        top: auto;
+        grid-row: 1;
+        height: auto;
+    }
+
+    #scatter-story .step {
+        min-height: 35vh;
+    }
+
+    .file-race {
+        grid-template-columns: minmax(7rem, 0.7fr) minmax(0, 1.3fr);
+        gap: 0.2rem 0.6rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .meta-chart .dot,
-    .tooltip {
+    .tooltip,
+    #scatter-story .step {
         transition: none;
     }
 }

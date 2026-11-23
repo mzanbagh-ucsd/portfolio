@@ -90,7 +90,7 @@ const BASE_PATH =
 const pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
-  { url: 'meta/', title: 'Code activity' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'cv/', title: 'CV' },
   { url: 'contact/', title: 'Contact' },
   { url: 'https://github.com/mzanbagh-ucsd', title: 'GitHub' },

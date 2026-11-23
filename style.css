@@ -1060,7 +1060,7 @@ a.contact-email:focus-visible {
     top: 1rem;
     align-self: start;
     min-width: 0;
-    height: 72vh;
+    height: auto;
 }
 
 #scatter-plot #chart {

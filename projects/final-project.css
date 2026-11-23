@@ -89,8 +89,7 @@
 }
 
 .story-copy {
-  position: sticky;
-  top: 2rem;
+  position: static;
   align-self: start;
 }
 

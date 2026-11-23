@@ -1067,6 +1067,22 @@ a.contact-email:focus-visible {
     margin-top: 0;
 }
 
+#scatter-plot .chart-heading {
+    display: block;
+}
+
+#scatter-plot .chart-heading h2 {
+    margin-bottom: 0.5rem;
+}
+
+#scatter-plot .chart-heading p {
+    max-width: none;
+}
+
+#scatter-plot .timeline-control {
+    margin-block: 0.75rem;
+}
+
 .file-race {
     display: grid;
     grid-template-columns: minmax(10rem, 0.8fr) minmax(0, 1.2fr);

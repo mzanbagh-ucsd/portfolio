@@ -25,20 +25,20 @@
     </section>
 
     <section class="meta-section" aria-labelledby="chart-title">
-      <div class="chart-heading">
-        <div>
-          <p class="eyebrow">Commit history</p>
-          <h2 id="chart-title">A day’s work, over time</h2>
-        </div>
-        <p>Each dot is a commit. Its horizontal position is the date, its height is the local commit time, and its area represents the number of lines touched.</p>
-      </div>
-      <div class="timeline-control">
-        <label for="commit-progress">Show commits through <time id="timeline-date"></time></label>
-        <input id="commit-progress" type="range" min="0" max="100" value="100" step="0.1" aria-label="Latest commit shown">
-      </div>
       <div id="scrolly-1">
         <div id="scatter-story" aria-label="Commit story"></div>
         <div id="scatter-plot">
+          <div class="chart-heading">
+            <div>
+              <p class="eyebrow">Commit history</p>
+              <h2 id="chart-title">A day’s work, over time</h2>
+            </div>
+            <p>Each dot is a commit. Its horizontal position is the date, its height is the local commit time, and its area represents the number of lines touched.</p>
+          </div>
+          <div class="timeline-control">
+            <label for="commit-progress">Show commits through <time id="timeline-date"></time></label>
+            <input id="commit-progress" type="range" min="0" max="100" value="100" step="0.1" aria-label="Latest commit shown">
+          </div>
           <div id="chart" aria-label="Interactive scatterplot of commits by date and time"></div>
           <ul class="meta-legend" aria-label="Chart color key">
             <li><span class="legend-dot" style="--dot-color: #3b82f6" aria-hidden="true"></span>Night / early morning</li>

@@ -17,8 +17,8 @@
   position: relative;
   display: grid;
   align-content: center;
-  min-height: min(78vh, 54rem);
-  padding: clamp(3rem, 9vw, 8rem) clamp(0.5rem, 5vw, 5rem);
+  min-height: min(70vh, 48rem);
+  padding: clamp(2.6rem, 7.5vw, 6.8rem) clamp(0.5rem, 4.5vw, 4.2rem);
   border-bottom: 1px solid var(--final-border);
 }
 
@@ -36,7 +36,7 @@
 .final-hero h1 {
   max-width: 13ch;
   margin: 0;
-  font-size: clamp(3.7rem, 10vw, 8.5rem);
+  font-size: clamp(3.2rem, 8.5vw, 7.2rem);
   letter-spacing: -0.075em;
   line-height: 0.91;
 }
@@ -49,7 +49,7 @@
 .hero-question {
   max-width: 40rem;
   margin: 2rem 0 0.55rem;
-  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-size: clamp(1.08rem, 1.8vw, 1.45rem);
   font-weight: 700;
   line-height: 1.35;
 }
@@ -58,7 +58,7 @@
   max-width: 45rem;
   margin: 0;
   color: var(--final-ink-soft);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.25vw, 1.08rem);
   line-height: 1.7;
 }
 
@@ -83,8 +83,8 @@
   display: grid;
   grid-template-columns: minmax(14rem, 0.68fr) minmax(0, 1.32fr);
   align-items: start;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  margin-block: clamp(3.5rem, 8vw, 7rem);
+  gap: clamp(1.25rem, 3.5vw, 3rem);
+  margin-block: clamp(3rem, 6.5vw, 5.8rem);
   scroll-margin-top: 2rem;
 }
 
@@ -96,7 +96,7 @@
 .story-copy h2,
 .ending h2 {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.5vw, 3.1rem);
   letter-spacing: -0.055em;
   line-height: 1.02;
   text-wrap: balance;
@@ -105,7 +105,7 @@
 .story-copy p:not(.eyebrow) {
   max-width: 36rem;
   color: var(--final-ink-soft);
-  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   line-height: 1.72;
 }
 
@@ -133,7 +133,7 @@
 .viz-card {
   min-width: 0;
   margin: 0;
-  padding: clamp(0.8rem, 2vw, 1.4rem);
+  padding: clamp(0.7rem, 1.7vw, 1.15rem);
   border: 1px solid var(--final-border);
   border-radius: 1rem;
   background: var(--final-surface);
@@ -146,12 +146,12 @@
 }
 
 .viz-card figcaption strong {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.12rem);
 }
 
 .viz-card figcaption span {
   color: var(--final-ink-soft);
-  font-size: 0.83rem;
+  font-size: 0.78rem;
 }
 
 .viz-card svg {
@@ -276,7 +276,7 @@
   align-items: end;
   flex-wrap: wrap;
   gap: 0.7rem;
-  padding: 1rem;
+  padding: 0.85rem;
   border: 1px solid var(--final-border);
   border-radius: 0.9rem;
   background: var(--final-surface);
@@ -497,7 +497,7 @@
 }
 
 .writeup-columns h3 {
-  font-size: 1.08rem;
+  font-size: 1rem;
 }
 
 .writeup-columns p {
@@ -508,7 +508,7 @@
 
 .ending h2 {
   max-width: 22ch;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
 }
 
 .ending > p:not(.eyebrow) {
@@ -551,8 +551,16 @@
 
 @media (max-width: 38rem) {
   .final-hero {
-    min-height: 72vh;
+    min-height: 68vh;
     padding-inline: 0.25rem;
+  }
+
+  .final-hero h1 {
+    font-size: clamp(3rem, 13vw, 5.5rem);
+  }
+
+  .story-copy h2 {
+    font-size: clamp(1.75rem, 8vw, 2.6rem);
   }
 
   .story-section {
